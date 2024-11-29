@@ -1,0 +1,18 @@
+﻿<Window x:Class="A157.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:A157"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="173" Width="279">
+    <StackPanel Background="Orange" Margin="0,0,-106,-103">
+        <Button Content="Click me!" Margin="10"/>
+        <Button Content="Click me!" Margin="10"/>
+        <StackPanel>
+            <Button Content="Click me!" Margin="10"/>
+            <Button Content="Click me!" Margin="10"/>
+        </StackPanel>
+    </StackPanel>
+
+</Window>
