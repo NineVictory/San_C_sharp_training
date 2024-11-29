@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("홍콩반점");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("짬뽕지존");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("차이나팩토리");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("중국집", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("스시로");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("쿠우쿠우");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("초밥집", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
-            treeNode19});
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("김밥천국");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("할매순대국");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("분식+한식", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("빕스");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("아웃백");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("양식집", new System.Windows.Forms.TreeNode[] {
-            treeNode24,
-            treeNode25});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("홍콩반점");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("짬뽕지존");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("차이나팩토리");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("중국집", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("스시로");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("쿠우쿠우");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("초밥집", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("김밥천국");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("할매순대국");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("분식+한식", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("빕스");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("아웃백");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("양식집", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12});
             this.lblTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.Menu_tree_View = new System.Windows.Forms.TreeView();
             this.Btn_Add = new System.Windows.Forms.Button();
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.Btn_Random = new System.Windows.Forms.Button();
             this.Btn_Add_menu = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Menu_txt_box = new System.Windows.Forms.TextBox();
             this.Restaurant_txt = new System.Windows.Forms.TextBox();
             this.btn_menu_board = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -87,45 +87,45 @@
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
-            // treeView1
+            // Menu_tree_View
             // 
-            this.treeView1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.treeView1.Location = new System.Drawing.Point(12, 51);
-            this.treeView1.Name = "treeView1";
-            treeNode14.Name = "Pack_jong_Won";
-            treeNode14.Text = "홍콩반점";
-            treeNode15.Name = "JjamBbong_Zz";
-            treeNode15.Text = "짬뽕지존";
-            treeNode16.Name = "China_factory";
-            treeNode16.Text = "차이나팩토리";
-            treeNode17.Name = "China_Food";
-            treeNode17.Text = "중국집";
-            treeNode18.Name = "Sushi_Ro";
-            treeNode18.Text = "스시로";
-            treeNode19.Name = "Kuukuu";
-            treeNode19.Text = "쿠우쿠우";
-            treeNode20.Name = "노드2";
-            treeNode20.Text = "초밥집";
-            treeNode21.Name = "Kimbab_Heaven";
-            treeNode21.Text = "김밥천국";
-            treeNode22.Name = "Grandma_Sundaeguk";
-            treeNode22.Text = "할매순대국";
-            treeNode23.Name = "노드3";
-            treeNode23.Text = "분식+한식";
-            treeNode24.Name = "Vips";
-            treeNode24.Text = "빕스";
-            treeNode25.Name = "Out_Back";
-            treeNode25.Text = "아웃백";
-            treeNode26.Name = "노드8";
-            treeNode26.Text = "양식집";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode20,
-            treeNode23,
-            treeNode26});
-            this.treeView1.Size = new System.Drawing.Size(187, 434);
-            this.treeView1.TabIndex = 2;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.Menu_tree_View.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Menu_tree_View.Location = new System.Drawing.Point(12, 51);
+            this.Menu_tree_View.Name = "Menu_tree_View";
+            treeNode1.Name = "Pack_jong_Won";
+            treeNode1.Text = "홍콩반점";
+            treeNode2.Name = "JjamBbong_Zz";
+            treeNode2.Text = "짬뽕지존";
+            treeNode3.Name = "China_factory";
+            treeNode3.Text = "차이나팩토리";
+            treeNode4.Name = "China_Food";
+            treeNode4.Text = "중국집";
+            treeNode5.Name = "Sushi_Ro";
+            treeNode5.Text = "스시로";
+            treeNode6.Name = "Kuukuu";
+            treeNode6.Text = "쿠우쿠우";
+            treeNode7.Name = "노드2";
+            treeNode7.Text = "초밥집";
+            treeNode8.Name = "Kimbab_Heaven";
+            treeNode8.Text = "김밥천국";
+            treeNode9.Name = "Grandma_Sundaeguk";
+            treeNode9.Text = "할매순대국";
+            treeNode10.Name = "노드3";
+            treeNode10.Text = "분식+한식";
+            treeNode11.Name = "Vips";
+            treeNode11.Text = "빕스";
+            treeNode12.Name = "Out_Back";
+            treeNode12.Text = "아웃백";
+            treeNode13.Name = "노드8";
+            treeNode13.Text = "양식집";
+            this.Menu_tree_View.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode7,
+            treeNode10,
+            treeNode13});
+            this.Menu_tree_View.Size = new System.Drawing.Size(187, 434);
+            this.Menu_tree_View.TabIndex = 2;
+            this.Menu_tree_View.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // Btn_Add
             // 
@@ -178,12 +178,12 @@
             this.Btn_Add_menu.UseVisualStyleBackColor = true;
             this.Btn_Add_menu.Click += new System.EventHandler(this.Btn_Add_menu_Click);
             // 
-            // textBox1
+            // Menu_txt_box
             // 
-            this.textBox1.Location = new System.Drawing.Point(694, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 21);
-            this.textBox1.TabIndex = 8;
+            this.Menu_txt_box.Location = new System.Drawing.Point(694, 78);
+            this.Menu_txt_box.Name = "Menu_txt_box";
+            this.Menu_txt_box.Size = new System.Drawing.Size(108, 21);
+            this.Menu_txt_box.TabIndex = 8;
             // 
             // Restaurant_txt
             // 
@@ -210,13 +210,13 @@
             this.ClientSize = new System.Drawing.Size(882, 521);
             this.Controls.Add(this.btn_menu_board);
             this.Controls.Add(this.Restaurant_txt);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Menu_txt_box);
             this.Controls.Add(this.Btn_Add_menu);
             this.Controls.Add(this.Btn_Random);
             this.Controls.Add(this.title);
             this.Controls.Add(this.Btn_Delete);
             this.Controls.Add(this.Btn_Add);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.Menu_tree_View);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.lblTime);
             this.Name = "Form1";
@@ -233,13 +233,13 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView Menu_tree_View;
         private System.Windows.Forms.Button Btn_Add;
         private System.Windows.Forms.Button Btn_Delete;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button Btn_Random;
         private System.Windows.Forms.Button Btn_Add_menu;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Menu_txt_box;
         private System.Windows.Forms.TextBox Restaurant_txt;
         private System.Windows.Forms.Button btn_menu_board;
     }

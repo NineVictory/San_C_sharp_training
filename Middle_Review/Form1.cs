@@ -12,7 +12,7 @@ namespace Middle_Review
         int margin = 10;                                        // 화면 요소 간 여백을 설정하는 변수로 설정
 
         // 메뉴 이름과 이미지 경로를 매핑한 Dictionary 생성(key를 자식노드의 text값으로 value를 사진위치로 설정)
-        private Dictionary<string, string> restaurantImages = new Dictionary<string, string>
+        private Dictionary<string, string> restaurant_Images = new Dictionary<string, string>
         {
             { "홍콩반점", "../../images/hongkong.jpg" },
             { "짬뽕지존", "../../images/JjamBbong.jpg" },
@@ -52,11 +52,12 @@ namespace Middle_Review
         }
 
         // TreeView 메뉴 선택 시 이미지 로드
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            if (restaurantImages.ContainsKey(e.Node.Text))                   // 선택한 메뉴가 Dictionary에 존재하는 경우
+        //AfterSelect 는 트리뷰에서 선택한 항목이 변경되면 실행되는 동작
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)//선택된 항목과 관련된 정보가 TreeViewEventArgs 객체에 저장되어 전달
+        {   
+            if (restaurant_Images.ContainsKey(e.Node.Text))                   // 선택한 메뉴가 Dictionary에 존재하는 경우
             {
-                pictureBox.Image = Bitmap.FromFile(restaurantImages[e.Node.Text]); // 해당 이미지 로드
+                pictureBox.Image = Bitmap.FromFile(restaurant_Images[e.Node.Text]); // 해당 이미지 로드(e.Node.Text가 키값이기 때문에 키값에 맞는 value값이 반환된다)
             }
         }
 
@@ -64,24 +65,24 @@ namespace Middle_Review
         private void Btn_Random_Click(object sender, EventArgs e)
         {
             Random rand = new Random();                                      // 랜덤 객체 생성
-            List<string> keys = new List<string>(restaurantImages.Keys);     // Dictionary의 모든 키를 리스트로 변환
-            string randomKey = keys[rand.Next(keys.Count)];                  // 랜덤으로 키 선택
-            pictureBox.Image = Bitmap.FromFile(restaurantImages[randomKey]); // 선택된 이미지 표시
+            List<string> keys = new List<string>(restaurant_Images.Keys);     // Dictionary의 모든 키를 리스트로 변환
+            string random_Key = keys[rand.Next(keys.Count)];                  // 랜덤으로 키 선택(0부터 keys.Count - 1 사이의 정수를 랜덤으로 생성)
+            pictureBox.Image = Bitmap.FromFile(restaurant_Images[random_Key]); // 선택된 이미지 표시
         }
 
         // 루트 메뉴 추가
         private void Btn_Add_menu_Click(object sender, EventArgs e)
         {
-            string rootName = textBox1.Text;                                 // 텍스트 박스에서 입력된 값 가져오기
+            string input_val_menu = Menu_txt_box.Text;                                 // 텍스트 박스에서 입력된 값 가져오기
 
-            if (!string.IsNullOrWhiteSpace(rootName))                        // 입력 값이 비어있지 않을 경우
+            if (!string.IsNullOrWhiteSpace(input_val_menu))                            // 입력 값이 null, 빈 문자열(""), 또는 공백으로만 구성된 경우 true를 반환
             {
-                treeView1.Nodes.Add(rootName);                               // 루트 노드 추가
-                textBox1.Text = "";                                          // 입력 필드 초기화
+                Menu_tree_View.Nodes.Add(input_val_menu);                              // 루트 노드 추가(트리뷰의 루트노드 컬렉션인 Menu_tree_View.Nodes에 입력값을 추가한다)
+                Menu_txt_box.Text = "";                                          // 입력 필드 초기화(추가가 되면 새로 입력할 수 있도록 기존값을 삭제)
             }
             else
             {
-                MessageBox.Show("이름을 입력하세요!", "Error");               // 경고 메시지 표시
+                MessageBox.Show("음식종류를 입력하세요!", "Error");                 // 경고 메시지 표시
             }
         }
 
@@ -89,46 +90,50 @@ namespace Middle_Review
         // 선택된 루트 메뉴에 하위 메뉴 추가
         private void Btn_Add_Click(object sender, EventArgs e)
         {
-            string InputValue = Restaurant_txt.Text;                        // 입력된 값 가져오기
-
-            if (treeView1.SelectedNode != null && !string.IsNullOrWhiteSpace(InputValue)) // 선택된 노드와 입력 값 확인
+            string input_value_rest = Restaurant_txt.Text;                             // 입력된 값 가져오기
+            //SelectedNode로 트리뷰에서 선택을 했는지 여부 && 입력을 했는지 여부
+            if (Menu_tree_View.SelectedNode != null && !string.IsNullOrWhiteSpace(input_value_rest)) // 선택된 노드와 입력 값 확인
             {
-                treeView1.SelectedNode.Nodes.Add(InputValue);               // 선택된 노드에 자식 노드 추가
-                treeView1.SelectedNode.Expand();                            // 새로 추가된 노드를 볼 수 있도록 확장
+                Menu_tree_View.SelectedNode.Nodes.Add(input_value_rest);               // 선택된 노드에 자식 노드 추가
+                Menu_tree_View.SelectedNode.Expand();                            // 새로 추가된 노드를 볼 수 있도록 확장
+                                                                                 // (Expand는 선택된 노드가 접혀 있는 경우 펼치게해줌)
             }
             else
             {
-                MessageBox.Show("이름을 입력하세요!", "Error");               // 경고 메시지 표시
+                MessageBox.Show("음식점 이름을 입력하세요!", "Error");                     // 경고 메시지 표시
             }
         }
 
         // 메뉴 이미지를 업데이트
         private void btn_menu_board_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();           // OpenFileDialog 객체 생성
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif"; // 지원 파일 형식 필터 설정
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)             // 파일 선택 확인
+            OpenFileDialog openFileDialog = new OpenFileDialog();                // OpenFileDialog:파일을 선택할 수 있도록 파일 탐색 창을 띄우는 객체
+                                                                                 // 파일을 선택하고 확인을 누르면 파일의 경로를 가질 수 있음
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";      // 지원 파일 형식 필터 설정
+                                                                                 // 제목 | 지원 파일 형식을 입력해줌.
+                    
+            if (openFileDialog.ShowDialog() == DialogResult.OK)                  // 파일 선택 후 확인버튼을 클릭 했을 경우 조건문 실행
             {
-                string selectedImagePath = openFileDialog.FileName;         // 선택된 파일 경로 가져오기
+                string selected_Image_Path = openFileDialog.FileName;              // 선택된 파일 경로 가져오기
 
-                if (treeView1.SelectedNode != null)                         // 선택된 TreeView 노드 확인
+                if (Menu_tree_View.SelectedNode != null)                         // 현재 트리뷰에서 선택된 노드 확인 여부
                 {
-                    if (treeView1.SelectedNode.Parent != null)              // 선택된 노드가 자식 노드인지 확인
+                    if (Menu_tree_View.SelectedNode.Parent != null)              // 선택된 노드가 자식 노드인지 확인
+                                                                                 // null인경우 부모노드가 없는 것이므로 선택한 노드가 루트노트임을 알 수 있음
                     {
-                        string selectedNodeText = treeView1.SelectedNode.Text; // 선택된 노드의 텍스트 가져오기
+                        string selected_Node_Text = Menu_tree_View.SelectedNode.Text; // 선택된 노드의 텍스트 가져오기
 
-                        if (restaurantImages.ContainsKey(selectedNodeText))  // 이미 존재하는 키인지 확인
+                        if (restaurant_Images.ContainsKey(selected_Node_Text))     // 이미 존재하는 키인지 확인
                         {
-                            restaurantImages[selectedNodeText] = selectedImagePath; // 이미지 경로 업데이트
+                            restaurant_Images[selected_Node_Text] = selected_Image_Path; // 이미지 경로 업데이트
                         }
                         else
                         {
-                            restaurantImages.Add(selectedNodeText, selectedImagePath); // 새 키와 이미지 추가
+                            restaurant_Images.Add(selected_Node_Text, selected_Image_Path); // 새 키와 이미지 추가
                         }
 
-                        pictureBox.Image = Bitmap.FromFile(selectedImagePath); // PictureBox에 새 이미지 표시
-                        MessageBox.Show($"'{selectedNodeText}'의 이미지가 성공적으로 업데이트되었습니다!", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information); // 성공 메시지 표시
+                        pictureBox.Image = Bitmap.FromFile(selected_Image_Path);   // PictureBox에 새 이미지 표시
+                        MessageBox.Show($"'{selected_Node_Text}'의 메뉴판이 성공적으로 등록되었습니다!", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information); // 성공 메시지 표시
                     }
                     else
                     {
@@ -145,18 +150,19 @@ namespace Middle_Review
         // 선택된 노드 삭제
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode != null)                             // 선택된 노드가 있는지 확인
+            if (Menu_tree_View.SelectedNode != null)                             // 선택된 노드가 있는지 확인
             {
-                DialogResult result = MessageBox.Show(
-                    $"'{treeView1.SelectedNode.Text}' 노드를 삭제하시겠습니까?", // 삭제 확인 메시지
+                DialogResult result = MessageBox.Show
+                (
+                    $"'{Menu_tree_View.SelectedNode.Text}' 노드를 삭제하시겠습니까?", // 삭제 확인 메시지
                     "삭제 확인",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
+                    MessageBoxButtons.YesNo,            //예 ,아니오 버튼
+                    MessageBoxIcon.Warning              //노란색 삼각형의 느낌표가 있는 Warning 아이콘
                 );
 
-                if (result == DialogResult.Yes)                             // 삭제 확인 시
+                if (result == DialogResult.Yes)                                  // 삭제 확인 시
                 {
-                    treeView1.Nodes.Remove(treeView1.SelectedNode);         // 선택된 노드 삭제
+                    Menu_tree_View.Nodes.Remove(Menu_tree_View.SelectedNode);    // 선택된 노드 삭제
                 }
             }
             else
