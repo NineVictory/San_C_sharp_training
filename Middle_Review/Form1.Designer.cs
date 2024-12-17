@@ -1,4 +1,4 @@
-﻿namespace Middle_Review
+﻿ㄷnamespace Middle_Review
 {
     partial class Form1
     {
@@ -89,6 +89,7 @@
             // 
             // Menu_tree_View
             // 
+            this.Menu_tree_View.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Menu_tree_View.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Menu_tree_View.Location = new System.Drawing.Point(12, 51);
             this.Menu_tree_View.Name = "Menu_tree_View";
@@ -125,7 +126,7 @@
             treeNode13});
             this.Menu_tree_View.Size = new System.Drawing.Size(187, 434);
             this.Menu_tree_View.TabIndex = 2;
-            this.Menu_tree_View.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.Menu_tree_View.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tree_View_AfterSelect);
             // 
             // Btn_Add
             // 

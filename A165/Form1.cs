@@ -22,8 +22,8 @@ namespace A165
 
             this.ClientSize = new Size(clientSize, clientSize); // 폼 크기 설정
             this.Text = "Analog Clock"; // 폼의 제목 설정
-            panel1.BackColor = Color.WhiteSmoke; // 패널의 배경색 설정
-            this.Padding = new Padding(10); // 폼에 여백 추가
+            panel1.BackColor = Color.Beige; // 패널의 배경색 설정
+            this.Padding = new Padding(5); // 폼에 여백 추가
 
             g = panel1.CreateGraphics(); // 패널에 그릴 그래픽 객체 생성
 
@@ -53,9 +53,9 @@ namespace A165
         {
             DateTime c = DateTime.Now;      // 현재 시간을 얻어옴
 
-            panel1.Refresh();               // 패널을 새로고침하여 이전 그리기 내용을 삭제
+            panel1.Refresh();               // 패널을 새로고침하여 이전 그리기 내용을 삭제(이걸안하면 초침이 중첩이된다)
 
-            DrawClockFace();                // 시계판을 그리는 함수 호출
+            DrawClockFace();                // 시계판을 그리는 함수 호출(원모양 시계판을 그림)
 
             // 시침, 분침, 초침의 각도를 라디안 단위로 계산
             double radHr = (c.Hour % 12 + c.Minute / 60.0) * 30 * Math.PI / 180; // 시침 각도

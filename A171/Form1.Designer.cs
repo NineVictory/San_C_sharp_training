@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.chartView = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnOne = new System.Windows.Forms.Button();
             this.btnTwo = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartView)).BeginInit();
             this.SuspendLayout();
             // 
-            // chart1
+            // chartView
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
-            this.chart1.Location = new System.Drawing.Point(81, 26);
-            this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(658, 300);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            chartArea1.Name = "ChartArea1";
+            this.chartView.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartView.Legends.Add(legend1);
+            this.chartView.Location = new System.Drawing.Point(81, 26);
+            this.chartView.Name = "chartView";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartView.Series.Add(series1);
+            this.chartView.Size = new System.Drawing.Size(658, 300);
+            this.chartView.TabIndex = 0;
+            this.chartView.Text = "chart1";
             // 
             // btnOne
             // 
@@ -69,7 +69,7 @@
             this.btnTwo.Name = "btnTwo";
             this.btnTwo.Size = new System.Drawing.Size(116, 23);
             this.btnTwo.TabIndex = 2;
-            this.btnTwo.Text = "button2";
+            this.btnTwo.Text = "나누어서 그리기";
             this.btnTwo.UseVisualStyleBackColor = true;
             this.btnTwo.Click += new System.EventHandler(this.btnTwo_Click);
             // 
@@ -80,18 +80,18 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnTwo);
             this.Controls.Add(this.btnOne);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartView);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartView;
         private System.Windows.Forms.Button btnOne;
         private System.Windows.Forms.Button btnTwo;
     }
